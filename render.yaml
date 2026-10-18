@@ -1,0 +1,14 @@
+# Render Blueprint: deploys the API. (Deploy the client on Vercel/Netlify, or add a static site here.)
+services:
+  - type: web
+    name: medipredict-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
